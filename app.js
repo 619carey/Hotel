@@ -1,9 +1,10 @@
 //Carousel functionality
-const carouselSlides = document.querySelectorAll('#carousel-slides');
+const carouselSlides = document.querySelectorAll('.carousel-slides');
 const carouselPrev = document.querySelector('.carousel-prev');
 const carouselNext = document.querySelector('.carousel-next');
 
 let currentSlide = 0;
+const slideInterval = 500;
 
 function showSlide(slideIndex) {
     carouselSlides.forEach((slide) => {
@@ -28,6 +29,10 @@ function goToNextSlide(){
     }
     showSlide(currentSlide);
 }
+
+function startCarousel() {
+    setInterval(goToNextSlide, slideInterval);
+  }
 
 carouselPrev.addEventListener('click', goToPreviousSlide);
 carouselNext.addEventListener('click', goToNextSlide);
